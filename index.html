@@ -15,8 +15,16 @@
         <h1>Mine Sweeper!</h1>
 
         <div class="game-controls">
-            <button class="smiley" onclick="initGame()">😁</button>
+            <div class="lives"></div>
+            <button class="smiley" onclick="initGame()"></button>
             <div class="timer">00:00:00</div>
+            <div class="levels">
+                <h3>Choose your level:</h3>
+                <button class="easy" onclick="changeLevel(0)">Easy</button>
+                <button class="medium" onclick="changeLevel(1)">Medium</button>
+                <button class="Hard" onclick="changeLevel(2)">Hard</button>
+            </div>
+            <h2 class="msg"></h2>
         </div>
 
         <div class="board-container">
@@ -29,6 +37,7 @@
     <script src="js/utils.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/extra-fetures.js"></script>
 </body>
 
 </html>
