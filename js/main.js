@@ -214,6 +214,7 @@ function renderCell(location) {
         if (cell.isMarked) elCellContent = FLAG;
         else elCellContent = '';
     } else {
+        elCell.classList.add('shown');
         if (cell.isMine) elCellContent = MINE;
         else if (cell.minesAroundCount === 0) elCellContent = cell.minesAroundCount; // This maybe should be changed later to be an empty cell, only with different style.
         else elCellContent = cell.minesAroundCount;

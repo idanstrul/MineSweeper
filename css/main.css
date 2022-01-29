@@ -5,3 +5,172 @@
     font-size: 1.5em;
     border-style: solid;
   }
+
+@font-face {
+    font-family: orange-kid;
+    src: url('/fonts/orange-kid.ttf');
+}
+
+body {
+    font-family: orange-kid;
+}
+
+
+
+
+
+
+
+
+body {
+    text-align: center;
+    background-image: url('/pictures/memphis-colorful.png');
+}
+
+.board-container {
+    display: inline-block;
+    border-style: ridge;
+}
+
+.hint-container {
+    margin: auto;
+}
+
+/* .game-controls {
+    position: relative;
+    width: 50%;
+    margin: auto;
+} */
+
+.lives {
+    /* position: absolute;
+    left: 10%;
+    top: 0; */
+    font-size: 20px;
+    width: 83px;
+}
+
+.timer {
+    /* position: absolute;
+    right: 10%;
+    top: 0; */
+    font-size: 30px;
+}
+
+button.smiley {
+    font-size: 25px;
+}
+
+.cell {
+    border-style: outset;
+    background-image: linear-gradient(45deg, #b1b0b0, white);
+}
+
+.shown {
+    border-style: inset;
+    background-image: linear-gradient(45deg, white, #b1b0b0);
+}
+
+
+
+
+
+
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    /* width: 50%; */
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.game-controls {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+}
+
+.top-bar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.levels {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    height: 40px;
+}
+
+
+
+
+
+
+.game-container {
+    background-color: rgb(240 248 255 / 0.5);
+    width: max-content;
+    border-style: groove;
+    border-width: 1px;
+}
+
+.game-controls {
+    background-color: rgb(240 248 255 / 0.5);
+    border-style: dotted;
+    border-radius: 15%;
+    margin-bottom: 5px;
+    px;
+    padding-top: 5;
+}
+
+.top-bar {
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+.hint-container {
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+
+.hint-container img {
+    width: 100%;
+}
+
+
+/* img.bulb_on { */
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    /* opacity: 0; */
+/* } */
+
+img.bulb_on:hover {
+    opacity: 1 !important;
+    transition: 1s;
+}
+
+.hint-container img:nth-child(2) {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
