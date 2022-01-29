@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: orange-kid;
-    src: url('/fonts/orange-kid.ttf');
+    src: url('../fonts/orange-kid.ttf');
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
 body {
     text-align: center;
-    background-image: url('/pictures/memphis-colorful.png');
+    background-image: url('../pictures/memphis-colorful.png');
 }
 
 .board-container {
