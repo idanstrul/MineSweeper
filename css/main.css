@@ -162,9 +162,14 @@ button.smiley {
     /* opacity: 0; */
 /* } */
 
-img.bulb_on:hover {
+.bulb-on {
     opacity: 1 !important;
     transition: 1s;
+}
+
+.hint-container:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .hint-container img:nth-child(2) {
@@ -172,5 +177,26 @@ img.bulb_on:hover {
     position: absolute;
     top: 0;
     left: 0;
+    transition: 1s;
+}
+
+.hints {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hints h3 {
+    margin-left: 10px;
+}
+
+.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.disabled:hover{
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 

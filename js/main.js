@@ -20,6 +20,7 @@ function initGame() {
     gBoard = createBoard();
     renderBoard(gBoard, '.board-container');
     renderLives();
+    renderHints();
 }
 
 function startGame() {
@@ -55,6 +56,8 @@ function resetAllVars() {
         isOn: false,
         isOver: false,
         lives: 3, //EXTRA FETURE
+        isHint: false, //EXTRA FETURE
+        hints: 3,
         shownCount: 0,
         markedCount: 0,
         secsPassed: 0,
@@ -156,6 +159,9 @@ function countMinesAround(location, board) {
 function CellClicked(elCell, i, j) {
     var cell = gBoard[i][j];
     if (cell.isMarked || cell.isShown || gGame.isOver) return;
+    if (gGame.isHint){
+        return showHint({i, j});
+    }
 
     gActionLocationStack.push({ i, j, event: 'leftClick' });
     if (!gGame.isOn) return startGame();
@@ -211,6 +217,7 @@ function renderCell(location) {
     var elCellContent;
 
     if (!cell.isShown) {
+        elCell.classList.remove('shown');
         if (cell.isMarked) elCellContent = FLAG;
         else elCellContent = '';
     } else {
