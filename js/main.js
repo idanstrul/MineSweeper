@@ -21,6 +21,7 @@ function initGame() {
     renderBoard(gBoard, '.board-container');
     renderLives();
     renderHints();
+    renderSafeClicks()
 }
 
 function startGame() {
@@ -57,6 +58,7 @@ function resetAllVars() {
         isOver: false,
         lives: 3, //EXTRA FETURE
         isHint: false, //EXTRA FETURE
+        safeClicks: 3, //EXTRA FETURE
         hints: 3,
         shownCount: 0,
         markedCount: 0,

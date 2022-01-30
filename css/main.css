@@ -64,6 +64,7 @@ button.smiley {
 .cell {
     border-style: outset;
     background-image: linear-gradient(45deg, #b1b0b0, white);
+    transition: 00.5s;
 }
 
 .shown {
@@ -200,3 +201,54 @@ button.smiley {
     cursor: not-allowed;
 }
 
+
+
+
+button {
+    font-family: 'orange-kid';
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.safe-click h3 {
+    margin: auto;
+}
+
+
+.safe-click button {
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#89c403;
+	border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	padding:6px 10px;
+	text-decoration:none;
+}
+.safe-click button:hover {
+	background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+	background-color:#77a809;
+}
+.safe-click button:active {
+	position:relative;
+	top:1px;
+}
+
+.safe-cell {
+    /* background-image: linear-gradient(45deg, #85ff00, #a5a5a5);
+    transition: 0.5s; */
+    animation-name: show-safe-cell;
+    animation-duration: 1s;
+    animation-direction: alternate;
+}
+
+@keyframes show-safe-cell {
+    from{
+        background-image: linear-gradient(45deg, #b1b0b0, white);
+    }
+    to{
+        background-image: linear-gradient(45deg, #85ff00, #a5a5a5);
+    }
+}
