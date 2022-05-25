@@ -7,7 +7,7 @@ const CONCERNED_SMILEY = ['🤔','😮','😯','😫','😕','😲','😖','😟
 
 var gBoard;
 var gGame;
-var gLevels = [{ size: 4, mines: 2 }, { size: 8, mines: 12 }, { size: 12, mines: 30 }];
+var gLevels = [{ size: 4, mines: 2, levelIdx: 0}, { size: 8, mines: 12, levelIdx: 1 }, { size: 12, mines: 30, levelIdx: 2 }];
 var gLevel = gLevels[0];
 var gMineLocations;
 var gActionLocationStack;
@@ -21,13 +21,15 @@ function initGame() {
     renderBoard(gBoard, '.board-container');
     renderLives();
     renderHints();
-    renderSafeClicks()
+    renderSafeClicks();
+    renderRecords();
 }
 
 function startGame() {
     gGame.isOn = true;
     startTimer()
-    addMines(gLevel.mines);
+    if (gGame.is7Boom) addMinesBy7Boom();
+    else addMines(gLevel.mines);
     updateMinesAroundCounts(gBoard);
     revealCells(gActionLocationStack[gActionLocationStack.length - 1]);
 }
@@ -41,6 +43,9 @@ function endGame(isWinner) {
     if (isWinner) {
         elmsg.innerHTML = 'You Are a Winner!';
         elSmiley.innerHTML = '😎'
+        if (gGame.lives === 3 && gGame.hints === 3 && 
+            gGame.safeClicks === 3 && !gGame.is7Boom && 
+            !gGame.wasUndo) setRecord();
     } else {
         elmsg.innerHTML = 'GAME OVER!';
         elSmiley.innerHTML = '🤯'
@@ -58,8 +63,10 @@ function resetAllVars() {
         isOver: false,
         lives: 3, //EXTRA FETURE
         isHint: false, //EXTRA FETURE
+        hints: 3, //EXTRA FETURE
         safeClicks: 3, //EXTRA FETURE
-        hints: 3,
+        is7Boom: false, //EXTRA FETURE
+        wasUndo: false, //EXTRA FETURE
         shownCount: 0,
         markedCount: 0,
         secsPassed: 0,
@@ -165,7 +172,7 @@ function CellClicked(elCell, i, j) {
         return showHint({i, j});
     }
 
-    gActionLocationStack.push({ i, j, event: 'leftClick' });
+    gActionLocationStack.push({ i, j, isRightClick: false });
     if (!gGame.isOn) return startGame();
     if (cell.isMine) {
         gGame.lives--;
@@ -238,7 +245,7 @@ function markCell(event, i, j) {
     if (cell.isShown || gGame.isOver) return;
 
 
-    gActionLocationStack.push({ i, j, event: 'rightClick' })
+    gActionLocationStack.push({ i, j, isRightClick: true})
     startTimer();       // if !gGame.isOn is not necessary here becuase of startTimer's implementation.
     if (!cell.isMarked) {
         cell.isMarked = true;

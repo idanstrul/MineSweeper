@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mine Sweeper</title>
-    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="css/main1.css">
 </head>
 
 <body onload="initGame()">
@@ -21,7 +22,7 @@
             <div class="top-bar">
                 <div class="lives"></div>
                 <button class="smiley" onclick="initGame()"></button>
-                <div class="timer">00:00:00</div>
+                <div class="timer">00:00</div>
             </div>
             <div class="levels">
                 <h3>Choose your level:</h3>
@@ -48,7 +49,7 @@
 
             <div class="extra-fetures">
                 <div class="hints">
-                    <h3>Get a hint:<br>💡💡💡</h3>
+                    <h3>Get a hint:<br></h3>
                     <div class="hint-container" onclick="getHint(this)">
                         <img src="pictures/bulb_off.gif" alt="">
                         <img src="pictures/bulb_on.gif" alt="">
@@ -56,7 +57,17 @@
                 </div>
                 <div class="safe-click">
                     <button onclick="getSafeClick()">Get a safe click</button>
-                    <h3>✅✅✅</h3>
+                    <h3></h3>
+                </div>
+                <div class="seven-boom">
+                    <button onclick="turnTo7Boom()">7 Boom 💥</button>
+                </div>
+                <div class="undo"><button onclick="undo()">undo <span class="undo-arrow">↩</span></button></div>
+                <div class="records">
+                    <h2>All Time Records:</h2>
+                    <h3>Hard: <span class="level2"></span></h3>
+                    <h3>Medium: <span class="level1"></span></h3>
+                    <h3>Easy: <span class="level0"></span></h3>
                 </div>
             </div>
         </div>

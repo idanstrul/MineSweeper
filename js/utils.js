@@ -120,3 +120,19 @@ function getRandomIntExclusive(min, max) {
 function positiveModulo(m, n) { //Calculate positive m%n
   return (m % n + n) % n;
 }
+
+function formatSecToTime(secStr) {
+  var sec = parseInt(secStr);
+  min = Math.floor(sec / 60);
+  sec = sec % 60;
+
+  if (sec < 10 || sec == 0) {
+      sec = '0' + sec;
+  }
+  if (min < 10 || min == 0) {
+      min = '0' + min;
+  }
+
+  var timeStr = min + ':' + sec;
+  return timeStr;
+}
